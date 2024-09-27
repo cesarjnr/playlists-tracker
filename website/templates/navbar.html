@@ -4,24 +4,24 @@
       Playlists Tracker
     </a>
     <ul class="navbar-nav mb-2 mb-lg-0">
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          href="
-            {% if user.is_authenticated %}
-              {% url 'logout' %}
-            {% else %}
-              {% url 'login' %}
-            {% endif %}
-          "
-        >
-          {% if user.is_authenticated %}
+      {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">
             Logout
-          {% else %}
+          </a>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">
+            Register
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">
             Login
-          {% endif %}
-        </a>
-      </li>
+          </a>
+        </li>
+      {% endif %}
     </ul>
   </div>
 </nav>
